@@ -1,0 +1,148 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    row-gap: 40px;
+    width: 100%;
+    padding: 40px 35px;
+    max-width: 375px;
+    border-radius: 40px;
+    backdrop-filter: blur(100px);
+    background-color: rgb(23, 24, 26);
+    min-height: 80vh;
+
+    &__buttons {
+        display: grid;
+        grid-template-areas:
+            "btn-e    btn-pi   btn-sin  btn-cos"
+            "btn-ac   btn-del  btn-div  btn-mul"
+            "btn-7    btn-8    btn-9    btn-sub"
+            "btn-4    btn-5    btn-6    btn-add"
+            "btn-1    btn-2    btn-3    btn-eq"
+            "btn-0    btn-0    btn-dot  btn-eq";
+        grid-template-columns: repeat(4, 60px);
+        grid-template-rows: repeat(6, 60px);
+        gap: 20px;
+    }
+
+    &__button#btn_e {
+        grid-area: btn-e;
+    }
+
+    &__button#btn_pi {
+        grid-area: btn-pi;
+    }
+
+    &__button#btn_sin {
+        grid-area: btn-sin;
+    }
+
+    &__button#btn_cos {
+        grid-area: btn-cos;
+    }
+
+    &__button#btn_ac {
+        grid-area: btn-ac;
+    }
+
+    &__button#btn_delete {
+        grid-area: btn-del;
+    }
+
+    &__button#btn_divide {
+        grid-area: btn-div;
+    }
+
+    &__button#btn_multiply {
+        grid-area: btn-mul;
+    }
+
+    &__button#btn_7 {
+        grid-area: btn-7;
+    }
+
+    &__button#btn_8 {
+        grid-area: btn-8;
+    }
+
+    &__button#btn_9 {
+        grid-area: btn-9;
+    }
+
+    &__button#btn_minus {
+        grid-area: btn-sub;
+    }
+
+    &__button#btn_4 {
+        grid-area: btn-4;
+    }
+
+    &__button#btn_5 {
+        grid-area: btn-5;
+    }
+
+    &__button#btn_6 {
+        grid-area: btn-6;
+    }
+
+    &__button#btn_plus {
+        grid-area: btn-add;
+    }
+
+    &__button#btn_1 {
+        grid-area: btn-1;
+    }
+
+    &__button#btn_2 {
+        grid-area: btn-2;
+    }
+
+    &__button#btn_3 {
+        grid-area: btn-3;
+    }
+
+    &__button#btn_0 {
+        grid-area: btn-0;
+    }
+
+    &__button#btn_dot {
+        grid-area: btn-dot;
+    }
+
+    &__button#btn_equals {
+        grid-area: btn-eq;
+    }
+
+    &__button {
+        border-radius: 16px;
+        font-size: 32px;
+        cursor: pointer;
+        color: #fff;
+        backdrop-filter: blur(12px);
+        color: rgb(41, 168, 255);
+        background-color: rgb(48, 49, 54);
+
+        &--small {
+            height: 40px;
+            border-radius: 24px;
+            font-size: 22px;
+            align-self: end;
+        }
+
+        &--primary {
+            background-color: rgb(0, 93, 178);
+            color: rgb(51, 157, 255);
+        }
+
+        &--light {
+            background-color: rgb(25, 145, 255);
+            color: rgb(178, 218, 255);
+        }
+
+        &--gray {
+            background-color: rgb(97, 97, 97);
+            color: rgb(165, 165, 165);
+        }
+    }
+}
