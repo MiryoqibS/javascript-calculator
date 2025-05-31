@@ -6,6 +6,7 @@ import { InputHandler } from "../InputHandler/InputHandler.js";
 export class Calculator {
     constructor(root) {
         this.root = root;
+        this.history = "";
     }
 
     init() {
@@ -46,23 +47,30 @@ export class Calculator {
             return "Недопустимые символы!";
         };
 
-        try {
-            // Используем eval для вычисления выражения
-            const result = eval(sanitized);
+        // Проверяем, что выражение не заканчивается на оператор
+        if (!["+", "-", "*", "/"].includes(sanitized.slice(-1))) {
+            try {
+                // Используем eval для вычисления выражения
+                const result = eval(sanitized);
 
-            if (isNaN(result) || !isFinite(result)) {
-                return "Ошибка вычисления!";
-            };
+                if (isNaN(result) || !isFinite(result)) {
+                    return "Ошибка вычисления!";
+                };
 
-            if (!Number.isInteger(result)) {
-                return result.toFixed(2);
-            };
+                if (!Number.isInteger(result)) {
+                    return result.toFixed(2);
+                };
 
-            return result.toString();
-        } catch (error) {
-            return `Ошибка вычисления! ${error}`;
-        }
-    }
+                // Обновляем историю вычислений
+                this.history = (sanitized + " = ");
+                this.display.updateHistory(this.history);
+
+                return result.toString();
+            } catch (error) {
+                return `Ошибка вычисления! ${error}`;
+            }
+        };
+    };
 
     initButtons(container) {
         const buttons = [

@@ -1,9 +1,10 @@
 import "./InputHandler.scss";
 
 export class InputHandler {
-    constructor(display, calculateFn) {
+    constructor(display, calculateFn, history) {
         this.display = display;
         this.calculateFn = calculateFn;
+        this.history = history;
     }
 
     handleButtonClick(label) {
@@ -72,7 +73,9 @@ export class InputHandler {
                 break;
             case "=":
                 const expression = this.calculateFn(this.display.value);
-                this.display.update(expression.toString());
+                if (expression) {
+                    this.display.update(expression.toString());
+                }
                 break;
             case ".":
                 this.display.update(this.display.value + ".");

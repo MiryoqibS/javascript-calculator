@@ -4,12 +4,15 @@ export class Display {
     constructor(root) {
         this.root = root;
         this.value = "";
-        this.text = document.createElement("h3");
+        this.history = "";
+        this.textElement = document.createElement("h3");
+        this.historyElement = document.createElement("p");
     }
 
     init() {
         this.render();
-        this.root.append(this.text);
+        
+        this.root.append(this.historyElement, this.textElement);
     }
 
     update(value) {
@@ -17,8 +20,19 @@ export class Display {
         this.render();
     }
 
+    updateHistory(history) {
+        this.history = history;
+        this.render();
+    }
+
     render() {
-        this.text.innerText = this.value || "0";
-        this.text.className = this.value ? "display__text" : "display__text empty";
+        this.textElement.innerText = this.value || "0";
+        this.textElement.className = "display__text";
+        
+        this.historyElement.innerText = this.history; 
+        this.historyElement.className = "display__history";
+        this.historyElement.addEventListener("click", () => {
+            this.update(this.history.slice(0, -2).trim());
+        })
     }
 };
