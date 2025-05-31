@@ -2,6 +2,7 @@ import "./Calculator.scss";
 import { Button } from "./Button.js";
 import { Display } from "../Display/Display.js";
 import { InputHandler } from "../InputHandler/InputHandler.js";
+import { ThemeToggle } from "../ThemeToggle/ThemeToggle.js";
 
 export class Calculator {
     constructor(root) {
@@ -22,6 +23,10 @@ export class Calculator {
         // Обработчик нажатий на кнопки
         this.inputHandler = new InputHandler(this.display, this.calculate);
 
+        // Инициализация переключателя темы
+        const themeToggle = new ThemeToggle(calculatorElement);
+        themeToggle.render();
+        
         this.display.init();
 
         // Инициализация кнопок

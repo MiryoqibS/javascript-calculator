@@ -9,8 +9,10 @@
     max-width: 375px;
     border-radius: 40px;
     backdrop-filter: blur(100px);
-    background-color: rgb(23, 24, 26);
+    background-color: var(--color-background);
     min-height: 80vh;
+    transition: all .4s ease;
+    box-shadow: var(--box-shadow);
 
     &__buttons {
         display: grid;
@@ -120,8 +122,9 @@
         cursor: pointer;
         color: #fff;
         backdrop-filter: blur(12px);
-        color: rgb(41, 168, 255);
-        background-color: rgb(48, 49, 54);
+        transition: all .4s ease;
+        color: var(--color-primary);
+        background-color: var(--color-surface-alt);
 
         &--small {
             height: 40px;
@@ -131,18 +134,18 @@
         }
 
         &--primary {
-            background-color: rgb(0, 93, 178);
-            color: rgb(51, 157, 255);
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
         }
 
         &--light {
-            background-color: rgb(25, 145, 255);
+            background-color: var(--color-primary);
             color: rgb(178, 218, 255);
         }
 
         &--gray {
-            background-color: rgb(97, 97, 97);
-            color: rgb(165, 165, 165);
+            background-color: var(--color-gray-medium);
+            color: var(--color-gray-light);
         }
     }
 }
