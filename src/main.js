@@ -1,9 +1,8 @@
 import "./main.scss";
 
-import { Calculator } from "./components/Calculator/Calculator";
+import { CalculatorApp } from "./CalculatorApp";
 
 const root = document.querySelector("#app");
 
-const calculator = new Calculator(root);
-
-calculator.init();
+const calculatorApp = new CalculatorApp( root);
+calculatorApp.init();

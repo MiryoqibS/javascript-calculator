@@ -22,12 +22,14 @@
             "btn-7    btn-8    btn-9    btn-sub"
             "btn-4    btn-5    btn-6    btn-add"
             "btn-1    btn-2    btn-3    btn-eq"
-            "btn-0    btn-0    btn-dot  btn-eq";
+            "btn-0    btn-0    btn-dot  btn-eq"
+            "bracket-open bracket-close btn-pow btn-sqrt";
         grid-template-columns: repeat(4, 60px);
-        grid-template-rows: repeat(6, 60px);
+        grid-template-rows: repeat(7, 60px);
         gap: 20px;
     }
 
+    // Константы
     &__button#btn_e {
         grid-area: btn-e;
     }
@@ -44,6 +46,7 @@
         grid-area: btn-cos;
     }
 
+    // Операторы очистки
     &__button#btn_ac {
         grid-area: btn-ac;
     }
@@ -52,6 +55,7 @@
         grid-area: btn-del;
     }
 
+    // Арифметические операторы
     &__button#btn_divide {
         grid-area: btn-div;
     }
@@ -60,6 +64,32 @@
         grid-area: btn-mul;
     }
 
+    &__button#btn_minus {
+        grid-area: btn-sub;
+    }
+
+    &__button#btn_plus {
+        grid-area: btn-add;
+    }
+
+    &__button#btn_pow {
+        grid-area: btn-pow;
+    }
+
+    &__button#btn_sqrt {
+        grid-area: btn-sqrt;
+    }
+
+    // Скобки
+    &__button#btn_bracket-open {
+        grid-area: bracket-open;
+    }
+
+    &__button#btn_bracket-close {
+        grid-area: bracket-close;
+    }
+
+    // Цифры
     &__button#btn_7 {
         grid-area: btn-7;
     }
@@ -72,10 +102,6 @@
         grid-area: btn-9;
     }
 
-    &__button#btn_minus {
-        grid-area: btn-sub;
-    }
-
     &__button#btn_4 {
         grid-area: btn-4;
     }
@@ -86,10 +112,6 @@
 
     &__button#btn_6 {
         grid-area: btn-6;
-    }
-
-    &__button#btn_plus {
-        grid-area: btn-add;
     }
 
     &__button#btn_1 {

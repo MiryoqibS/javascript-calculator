@@ -5,24 +5,27 @@ export class Button {
         this.root = root;
         this.label = label;
         this.onClick = onClick;
-        this.buttonElement = document.createElement("button");
-        this.buttonElement.type = "button";
-        this.buttonElement.innerText = label;
-        // Добавляем класс для типа кнопки
-        this.buttonElement.className = `${className} ${className}--${modification}`;
-        // Добавляем id кнопке
-        this.buttonElement.id = id;
+        this.id = id;
+        this.className = `${className} ${className}--${modification}`;
     }
 
     init() {
+        const buttonElement = document.createElement("button");
+        buttonElement.type = "button";
+        buttonElement.innerText = this.label;
+        buttonElement.className = this.className;
+        buttonElement.id = this.id;
+
         if (this.label === "delete") {
-            this.buttonElement.innerHTML = deleteIcon; // Используем иконку для кнопки "delete"
+            buttonElement.innerHTML = deleteIcon; // Используем иконку для кнопки "delete"
         };
 
-        this.buttonElement.addEventListener("click", () => {
+        // Обработка по клике
+        buttonElement.addEventListener("click", () => {
             this.onClick(this.label);
         });
 
+        // Обработка нажатий на клавиши
         document.addEventListener("keydown", (event) => {
             if (event.key === this.label) {
                 this.onClick(this.label);
@@ -47,6 +50,6 @@ export class Button {
             });
         }
 
-        this.root.appendChild(this.buttonElement);
+        this.root.appendChild(buttonElement);
     }
 }

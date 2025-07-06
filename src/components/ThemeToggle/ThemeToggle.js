@@ -1,12 +1,10 @@
 import "./ThemeToggle.scss";
 
 export class ThemeToggle {
-    constructor(root) {
-        this.root = root;
-        this.toggleButton = document.createElement("label");
-    }
-
     render() {
+        const toggle = document.createElement("label")
+        toggle.className = "theme-toggle";
+
         // Создаем переключатель темы
         const toggleInput = document.createElement("input");
         toggleInput.type = "checkbox";
@@ -15,7 +13,6 @@ export class ThemeToggle {
         const toggleSlider = document.createElement("span");
         toggleSlider.className = "theme-toggle__slider";
         
-        this.toggleButton.className = "theme-toggle";
 
         // Переключение темы
         toggleInput.addEventListener("change", () => {
@@ -26,9 +23,9 @@ export class ThemeToggle {
             }
         });
 
-        this.toggleButton.appendChild(toggleInput);
-        this.toggleButton.appendChild(toggleSlider);
+        toggle.appendChild(toggleInput);
+        toggle.appendChild(toggleSlider);
 
-        this.root.appendChild(this.toggleButton);
+        return toggle;
     }
 }
